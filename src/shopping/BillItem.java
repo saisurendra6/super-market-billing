@@ -1,17 +1,16 @@
 package shopping;
 
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-public class BillItem {
+public class BillItem implements Serializable {
     String name;
     String code;
-    float MRP;
+    double MRP;
     int qty;
     float discount;
     float totalVal;
 
-    public BillItem(String name, String code, float mRP, int qty, float discount) {
+    public BillItem(String name, String code, double mRP, int qty, float discount) {
         this.name = name;
         this.code = code;
         MRP = mRP;
@@ -37,7 +36,7 @@ public class BillItem {
         return code;
     }
 
-    public float getMRP() {
+    public double getMRP() {
         return MRP;
     }
 
@@ -54,7 +53,7 @@ public class BillItem {
     }
 
     public float getTotalVal() {
-        totalVal = MRP * (qty - discount / 100);
+        totalVal = (float) MRP * (qty - discount / 100);
         return totalVal;
     }
 

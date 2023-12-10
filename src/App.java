@@ -1,8 +1,17 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import shopping.BillItem;
+import shopping.BillUtils;
 
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
+        ArrayList<BillItem> items = new ArrayList<BillItem>();
+        items.add(new BillItem("name1", "code1", 20.0, 1, 5));
+        items.add(new BillItem("name2", "code2", 15.0, 1, 3));
+        items.add(new BillItem("name3", "code3", 25.0, 1, 8));
+
         System.out.println("Hello Welcome to MANA Super Market :-)");
         int choice = 0;
         while (choice != 4) {
@@ -11,6 +20,8 @@ public class App {
             switch (choice) {
                 case 1:
                     System.out.println("directing u to shoping...");
+                    BillUtils.saveBill("c-1", "now", items);
+                    BillUtils.readBill("c-1", "now");
                     break;
                 case 2:
                     System.out.println("directing u to customer details...");
