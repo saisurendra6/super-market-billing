@@ -12,7 +12,7 @@ public class BillUtils {
 
     public static void saveBill(String cID, String billID, ArrayList<BillItem> billItemsList) {
         try {
-            File billFile = Utils.getFile(Utils.billsDir + cID, billID + ".txt");
+            File billFile = Utils.getFile(Utils.billsDir + "/" + cID, billID + ".txt");
             FileOutputStream fos = new FileOutputStream(billFile);
             for (BillItem billItem : billItemsList)
                 fos.write((billItem + "\n").getBytes());
@@ -27,7 +27,7 @@ public class BillUtils {
         ArrayList<BillItem> billItems = new ArrayList<>();
         try {
             BufferedReader br = new BufferedReader(
-                    new FileReader(Utils.billsDir + cID + "/" + billID + ".txt"));
+                    new FileReader(Utils.billsDir + "/" + cID + "/" + billID + ".txt"));
             br.lines().forEach(val -> billItems.add(BillItem.createFromString(val)));
             System.out.println("printing val...");
             billItems.forEach((i) -> System.out.println(i));
