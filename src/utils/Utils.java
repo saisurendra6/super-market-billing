@@ -4,15 +4,18 @@ import java.io.File;
 import java.io.IOException;
 
 public class Utils {
-    public static final String billsDir = "D:/super market data/bills";
-    public static final String customerDetailsDir = "D:/super market data/custmerDetails";
+    public static final String billsDir = "D:/SuperMarketData/bills";
+    public static final String customerDetailsDir = "D:/SuperMarketData/custmerDetails";
 
     public static File getFile(String dirString, String fileName) throws IOException {
         String path = getPath(dirString, fileName);
         File dir = new File(dirString);
         File file = new File(path);
-        if (!dir.exists())
-            dir.mkdir();
+        if (!dir.exists()){
+            System.out.println("dir not thre");
+            // dir.mkdir();
+            dir.mkdirs();
+        }
         if (!file.exists())
             file.createNewFile();
         return file;
