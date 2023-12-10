@@ -1,4 +1,4 @@
-package shopping;
+package billing;
 
 import java.io.Serializable;
 

@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import shopping.BillItem;
-import shopping.BillUtils;
+import billing.BillItem;
+import billing.BillUtils;
 
 public class App {
     public static void main(String[] args) throws Exception {
