@@ -2,46 +2,28 @@ package shopping;
 
 import java.io.Serializable;
 
-public class BillItem implements Serializable {
-    String name;
-    String code;
-    double MRP;
-    int qty;
-    float discount;
-    float totalVal;
+import store.StoreItem;
+
+public class BillItem extends StoreItem implements Serializable {
+    public int qty;
+    public float totalVal;
 
     public BillItem(String name, String code, double mRP, int qty, float discount) {
-        this.name = name;
-        this.code = code;
-        MRP = mRP;
+        super(name, code, mRP, discount);
         this.qty = qty;
-        this.discount = discount;
         getTotalVal();
     }
 
     public BillItem(BillItem item) {
-        this.name = item.name;
-        this.code = item.code;
-        MRP = item.MRP;
+        super(item.getItemName(), item.getItemCode(), item.getMRP(), item.getDiscount());
         this.qty = item.qty;
-        this.discount = item.discount;
         getTotalVal();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public double getMRP() {
-        return MRP;
-    }
-
-    public float getDiscount() {
-        return discount;
+    public BillItem(StoreItem storeItem, int qty) {
+        super(storeItem);
+        this.qty = qty;
+        getTotalVal();
     }
 
     public int getQty() {
@@ -53,14 +35,22 @@ public class BillItem implements Serializable {
     }
 
     public float getTotalVal() {
-        totalVal = (float) MRP * (qty - discount / 100);
+        totalVal = (float) MRP * (qty - Discount / 100);
         return totalVal;
+    }
+
+    public static BillItem createFromString(String str) {
+        String arr[] = str.split(",");
+        return new BillItem(BillUtils.getItemVal(arr[0]), BillUtils.getItemVal(arr[1]),
+                Double.parseDouble(BillUtils.getItemVal(arr[2])), Integer.parseInt(BillUtils.getItemVal(arr[3])),
+                Float.parseFloat(BillUtils.getItemVal(arr[4])));
     }
 
     @Override
     public String toString() {
-        return "Name: " + name + " code: " + code + " mrp: " + MRP + " qty: " + qty + " discount: " + discount
-                + " tot: " + totalVal;
+        return "Item Name = " + ItemName + ", Item code = " + this.ItemCode + ", MRP = " + MRP + ", Quantity = " + qty
+                + ", Discount = " + Discount
+                + ", Total = " + totalVal;
     }
 
 }
