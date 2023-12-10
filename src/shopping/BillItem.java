@@ -1,5 +1,8 @@
 package shopping;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
 public class BillItem {
     String name;
     String code;
@@ -17,7 +20,7 @@ public class BillItem {
         getTotalVal();
     }
 
-    public BillItem(BillItem item){
+    public BillItem(BillItem item) {
         this.name = item.name;
         this.code = item.code;
         MRP = item.MRP;
@@ -29,18 +32,23 @@ public class BillItem {
     public String getName() {
         return name;
     }
+
     public String getCode() {
         return code;
     }
+
     public float getMRP() {
         return MRP;
     }
+
     public float getDiscount() {
         return discount;
     }
+
     public int getQty() {
         return qty;
     }
+
     public void setQty(int qty) {
         this.qty = qty;
     }
