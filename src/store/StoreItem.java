@@ -1,5 +1,7 @@
 package store;
 
+import utils.Utils;
+
 public class StoreItem {
     public final String ItemName;
     protected final String ItemCode;
@@ -47,6 +49,12 @@ public class StoreItem {
     @Override
     public String toString() {
         return "ItemName = " + ItemName + ", ItemCode = " + ItemCode + ", MRP = " + MRP + ", Discount = " + Discount;
+    }
+
+    public static StoreItem createFromString(String str) {
+        String arr[] = str.split(",");
+        return new StoreItem(Utils.getItemVal(arr[0]).trim(), Utils.getItemVal(arr[1]).trim(),
+                Double.parseDouble(Utils.getItemVal(arr[2]).trim()), Float.parseFloat(Utils.getItemVal(arr[3]).trim()));
     }
 
 }

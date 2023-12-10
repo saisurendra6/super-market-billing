@@ -1,1 +1,0 @@
-Item Name = name1, Item code = code2, MRP = 20.0, Discount = 5.0

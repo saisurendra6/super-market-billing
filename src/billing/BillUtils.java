@@ -38,7 +38,4 @@ public class BillUtils {
         return billItems;
     }
 
-    public static String getItemVal(String str) {
-        return str.split("=")[1].trim();
-    }
 }

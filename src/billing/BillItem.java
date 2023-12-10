@@ -1,8 +1,8 @@
 package billing;
 
 import java.io.Serializable;
-
 import store.StoreItem;
+import utils.Utils;
 
 public class BillItem extends StoreItem implements Serializable {
     public int qty;
@@ -41,9 +41,9 @@ public class BillItem extends StoreItem implements Serializable {
 
     public static BillItem createFromString(String str) {
         String arr[] = str.split(",");
-        return new BillItem(BillUtils.getItemVal(arr[0]), BillUtils.getItemVal(arr[1]),
-                Double.parseDouble(BillUtils.getItemVal(arr[2])), Integer.parseInt(BillUtils.getItemVal(arr[3])),
-                Float.parseFloat(BillUtils.getItemVal(arr[4])));
+        return new BillItem(Utils.getItemVal(arr[0]), Utils.getItemVal(arr[1]),
+                Double.parseDouble(Utils.getItemVal(arr[2])), Integer.parseInt(Utils.getItemVal(arr[3])),
+                Float.parseFloat(Utils.getItemVal(arr[4])));
     }
 
     @Override

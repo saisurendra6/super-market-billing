@@ -24,4 +24,8 @@ public class Utils {
     public static String getPath(String dirString, String fileName) {
         return dirString + "/" + fileName;
     }
+
+    public static String getItemVal(String str) {
+        return str.split("=")[1].trim();
+    }
 }

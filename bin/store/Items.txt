@@ -1,0 +1,4 @@
+Item Name = name1, Item code = code2, MRP = 20.0, Discount = 5.0
+Item Name = name2, Item code = code2, MRP = 25.0, Discount = 6.0
+Item Name = name3, Item code = code3, MRP = 15.0, Discount = 3.0
+Item Name = name4, Item code = code4, MRP = 26.0, Discount = 7.0
