@@ -30,7 +30,7 @@ public class BillUtils {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(billFile));
             // ArrayList<BillItem> billItemsArrayList= (ArrayList<BillItem>)
             // ois.readObject();
-            BillItem obj = (BillItem) ois.readObject();
+            ArrayList obj = (ArrayList) ois.readObject();
             System.out.println(obj.getClass());
             System.out.println(obj);
         } catch (Exception e) {
