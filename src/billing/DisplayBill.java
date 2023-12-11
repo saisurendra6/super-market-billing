@@ -8,7 +8,6 @@ public class DisplayBill extends Thread {
     public DisplayBill(ArrayList<BillItem> items) {
         super("printing bill");
         this.items = items;
-        start();
     }
 
     @Override
@@ -21,6 +20,7 @@ public class DisplayBill extends Thread {
                 e.printStackTrace();
             }
         }
+        System.out.println("Directing to Main Menu ---> > >");
         super.run();
     }
 }

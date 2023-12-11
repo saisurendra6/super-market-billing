@@ -29,8 +29,8 @@ public class BillUtils {
             BufferedReader br = new BufferedReader(
                     new FileReader(Utils.billsDir + "/" + cID + "/" + billID + ".txt"));
             br.lines().forEach(val -> billItems.add(BillItem.createFromString(val)));
-            System.out.println("printing val...");
-            billItems.forEach((i) -> System.out.println(i));
+            // System.out.println("printing val...");
+            // billItems.forEach((i) -> System.out.println(i));
             br.close();
         } catch (Exception e) {
             e.printStackTrace();

@@ -12,7 +12,7 @@ public class Utils {
         File dir = new File(dirString);
         File file = new File(path);
         if (!dir.exists()){
-            System.out.println("dir not thre");
+            System.out.println("dir not thre " + dirString);
             // dir.mkdir();
             dir.mkdirs();
         }
@@ -20,6 +20,8 @@ public class Utils {
             file.createNewFile();
         return file;
     }
+
+    public static void checkDir(String dirPath) {}
 
     public static String getPath(String dirString, String fileName) {
         return dirString + "/" + fileName;

@@ -2,10 +2,11 @@ package store;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import billing.BillItem;
 import billing.BillUtils;
 import billing.DisplayBill;
+import customer.CustomerInfo;
+import customer.CustomerUtils;
 
 public class DisplayStore {
 
@@ -43,9 +44,22 @@ public class DisplayStore {
                         "\n1. Go to Billing\n2. Contine shoping\n3. Go back to main menu\nEnter your choice: ");
                 int choice = scanner.nextInt();
                 if (choice == 1) {
-                    BillUtils.saveBill("c-1", "now", billItems);
-                    BillUtils.readBill("c-1", "now");
-                    // DisplayBill dBill = new DisplayBill(billItems);
+                    System.out.println("Enter your Ph No. ");
+                    String phNo = scanner.next();
+                    if (!CustomerUtils.checkCustomer(phNo)) {
+                        System.out.println("Enter name: ");
+                        String name = scanner.next();
+                        CustomerUtils.saveCustomer(new CustomerInfo(name, phNo, 0));
+                    }
+                    BillUtils.saveBill(phNo, "now", billItems);
+                    BillUtils.readBill(phNo, "now");
+                    DisplayBill dBill = new DisplayBill(billItems);
+                    dBill.start();
+                    try {
+                        dBill.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     condition = false;
                     break;
                 } else if (choice == 2) {
@@ -58,7 +72,6 @@ public class DisplayStore {
                 }
             }
         }
-        scanner.close();
         System.out.println("");
     }
 }

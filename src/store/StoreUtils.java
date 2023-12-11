@@ -9,7 +9,7 @@ public class StoreUtils {
     public static StoreItem[] getStoreItems() {
         ArrayList<StoreItem> items = new ArrayList<>();
         try {
-            BufferedReader br = new BufferedReader(new FileReader("D:/sai/java/projects/super market billing/src/store/Items.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("src/store/Items.txt"));
             String line;
             while ((line = br.readLine()) != null) {
                 items.add(StoreItem.createFromString(line));
