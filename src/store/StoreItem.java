@@ -38,14 +38,6 @@ public class StoreItem {
         return MRP;
     }
 
-    public void setMRP(double mRP) {
-        MRP = mRP;
-    }
-
-    public void setDiscount(float discount) {
-        Discount = discount;
-    }
-
     @Override
     public String toString() {
         return "ItemName = " + ItemName + ", ItemCode = " + ItemCode + ", MRP = " + MRP + ", Discount = " + Discount;

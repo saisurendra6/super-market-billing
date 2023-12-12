@@ -24,7 +24,7 @@ public class App {
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    dStoreObj.display();
+                    dStoreObj.storeCounter();
                     break;
                 case 2:
                     System.out.println("directing u to customer details...");

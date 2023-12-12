@@ -29,10 +29,6 @@ public class BillItem extends StoreItem implements totalVal {
         return qty;
     }
 
-    public void setQty(int qty) {
-        this.qty = qty;
-    }
-
     public static BillItem createFromString(String str) {
         String arr[] = str.split(",");
         return new BillItem(Utils.getItemVal(arr[0]), Utils.getItemVal(arr[1]),
