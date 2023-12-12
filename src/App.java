@@ -38,6 +38,7 @@ public class App {
                     break;
                 case 3:
                     System.out.println("printing store data");
+                    dStoreObj.display();
                     break;
                 case 4:
                     System.out.println("exiting...");
