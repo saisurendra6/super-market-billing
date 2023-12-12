@@ -14,12 +14,22 @@ public class DisplayStore {
 
         StoreItem itemsArr[] = StoreUtils.getStoreItems();
         System.out.println("\n>>>>>\n");
+        System.out.println("------------------------------------------------------------------");
+        // for (int i = 0; i < itemsArr.length; i++) {
+        // System.out.println(
+        // (i + 1) + ". Item Name: " + itemsArr[i].ItemName + ", MRP: " +
+        // itemsArr[i].MRP + ", Discount: "
+        // + itemsArr[i].Discount + "%");
+        // }
+        System.out.printf("s.no\titemname\titemcode\tmrp\t\tdiscount\n");
         for (int i = 0; i < itemsArr.length; i++) {
-            System.out.println(
-                    (i + 1) + ".  Item Name: " + itemsArr[i].ItemName + ",   MRP: " + itemsArr[i].MRP + ",   Discount: "
-                            + itemsArr[i].Discount + "%");
+            StoreItem item = itemsArr[i];
+            System.out.println("------------------------------------------------------------------");
+            System.out.printf("%d\t%s\t\t%s\t\t%.2f\t\t%.2f\n", (i + 1), item.ItemName, item.ItemCode, item.getMRP(),
+                    item.getDiscount());
         }
-        System.out.println("\n<<<<<<\n");
+        System.out.println("------------------------------------------------------------------");
+         System.out.println("\n>>>>>\n");
         boolean condition = true;
 
         Scanner scanner = new Scanner(System.in);
