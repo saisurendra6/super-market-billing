@@ -37,7 +37,7 @@ public class App {
                     }
                     break;
                 case 3:
-                    System.out.println("directing u to store data...");
+                    System.out.println("printing store data");
                     break;
                 case 4:
                     System.out.println("exiting...");
