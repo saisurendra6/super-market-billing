@@ -45,7 +45,8 @@ public class BillItem extends StoreItem implements totalVal {
 
     @Override
     public float getTotalVal() {
-        return (float) MRP * (qty - Discount / 100);
+        int val = (int) (MRP * qty * (100 - Discount));
+        return (float) val / 100;
     }
 
 }
