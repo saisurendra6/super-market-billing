@@ -1,4 +1,8 @@
-Item Name = name1, Item code = code2, MRP = 20.0, Discount = 5.0
-Item Name = name2, Item code = code2, MRP = 25.0, Discount = 6.0
-Item Name = name3, Item code = code3, MRP = 15.0, Discount = 3.0
-Item Name = name4, Item code = code4, MRP = 26.0, Discount = 7.0
+Item Name = Aashirvaad Atta, Item code = code1, MRP = 20.0, Discount = 5.0
+Item Name = Diary Milk Silk, Item code = code2, MRP = 25.0, Discount = 6.0
+Item Name = Milk (500ml), Item code = code3, MRP = 40.0, Discount = 0.0
+Item Name = Peanut Butter, Item code = code4, MRP = 250.0, Discount = 9.0
+Item Name = cashewnuts, Item code = code5, MRP = 500.0, Discount = 15.0
+Item Name = Nivya facewash, Item code = code6, MRP = 50.0, Discount = 5.0
+Item Name = Ponds powder, Item code = code7, MRP = 100.0, Discount = 8.0
+Item Name = Fogg Perfume, Item code = code8, MRP = 300.0, Discount = 10.0

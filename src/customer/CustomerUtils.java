@@ -36,7 +36,7 @@ public class CustomerUtils {
 
     public static Boolean checkCustomer(String phNo) {
         File file = new File(Utils.customerDetailsDir + "/" + phNo + ".ser");
-        System.out.println("path: " + file.getPath());
+        // System.out.println("path: " + file.getPath());
         return file.exists();
     }
 }

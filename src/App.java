@@ -2,12 +2,14 @@ import java.util.Scanner;
 
 import customer.CustomerUtils;
 import store.DisplayStore;
+import utils.Utils;
 
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         DisplayStore dStoreObj = new DisplayStore();
 
+        System.out.println(Utils.nameStr);
         System.out.println("Hello Welcome to MANA Super Market :-)");
         int choice = 0;
         while (choice != 4) {

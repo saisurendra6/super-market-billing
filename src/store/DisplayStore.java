@@ -38,7 +38,9 @@ public class DisplayStore {
                 System.out.println(
                         "\n1. Go to Billing\n2. Contine shoping\n3. Go back to main menu\nEnter your choice: ");
                 int choice = scanner.nextInt();
-                if (choice == 1) {
+                if (choice == 0) {
+                    System.out.println("nothing is added...");
+                } else if (choice == 1) {
                     System.out.println("Enter your Ph No. ");
                     String phNo = scanner.next();
                     if (!CustomerUtils.checkCustomer(phNo)) {
@@ -70,14 +72,14 @@ public class DisplayStore {
     }
 
     public void display() {
-        System.out.println("------------------------------------------------------------------");
-        System.out.printf("s.no\titemname\titemcode\tmrp\t\tdiscount\n");
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.printf("s.no\titemname\t\titemcode\tmrp\t\tdiscount\n");
         for (int i = 0; i < itemsArr.length; i++) {
             StoreItem item = itemsArr[i];
             System.out.printf("%d\t%s\t\t%s\t\t%.2f\t\t%.2f\n", (i + 1), item.ItemName, item.ItemCode, item.getMRP(),
                     item.getDiscount());
         }
-        System.out.println("------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------");
     }
 
 }

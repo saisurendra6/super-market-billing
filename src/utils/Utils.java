@@ -7,6 +7,8 @@ import java.io.IOException;
 public class Utils {
     public static final String billsDir = "D:/SuperMarketData/bills";
     public static final String customerDetailsDir = "D:/SuperMarketData/custmerDetails";
+    public static final String gstNo = "GST-IN097343821";
+    public static final String nameStr = "\n\t\t\t\t ------------------------------- \n\t\t\t\t|\tMANA SUPER MARKET\t|\t\t\n\t\t\t\t ------------------------------- \n";
 
     public static void writeFile(File file, String data) {
         try {
