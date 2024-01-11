@@ -29,10 +29,6 @@ public class BillItem extends StoreItem implements totalVal {
         return qty;
     }
 
-    public void setQty(int qty) {
-        this.qty = qty;
-    }
-
     public static BillItem createFromString(String str) {
         String arr[] = str.split(",");
         return new BillItem(Utils.getItemVal(arr[0]), Utils.getItemVal(arr[1]),
@@ -49,7 +45,8 @@ public class BillItem extends StoreItem implements totalVal {
 
     @Override
     public float getTotalVal() {
-        return (float) MRP * (qty - Discount / 100);
+        int val = (int) (MRP * qty * (100 - Discount));
+        return (float) val / 100;
     }
 
 }

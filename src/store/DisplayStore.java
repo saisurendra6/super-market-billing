@@ -1,30 +1,25 @@
 package store;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 import billing.BillItem;
-import billing.BillUtils;
 import billing.DisplayBill;
 import customer.CustomerInfo;
 import customer.CustomerUtils;
 
 public class DisplayStore {
 
-    public void display() {
+    Date date = new Date();
+    StoreItem itemsArr[] = StoreUtils.getStoreItems();
 
-        StoreItem itemsArr[] = StoreUtils.getStoreItems();
-        System.out.println("\n>>>>>\n");
-        for (int i = 0; i < itemsArr.length; i++) {
-            System.out.println(
-                    (i + 1) + ".  Item Name: " + itemsArr[i].ItemName + ",   MRP: " + itemsArr[i].MRP + ",   Discount: "
-                            + itemsArr[i].Discount + "%");
-        }
-        System.out.println("\n<<<<<<\n");
+    public void storeCounter() {
+
         boolean condition = true;
-
         Scanner scanner = new Scanner(System.in);
         ArrayList<BillItem> billItems = new ArrayList<>();
-        // ArrayList<Integer> selectedItems = new ArrayList<>();
+
+        display();
         while (condition) {
             System.out.println("select item: ");
             int itemIndex = scanner.nextInt();
@@ -35,7 +30,7 @@ public class DisplayStore {
             System.out.println("Quantity: ");
             int qty = scanner.nextInt();
             billItems.add(new BillItem(itemsArr[itemIndex - 1], qty));
-            System.out.println("Would like to add more? (y/n) ");
+            System.out.println("Would like to add more items (y/n) ");
             String ch = scanner.next();
             if (ch.charAt(0) == 'y' || ch.charAt(0) == 'Y') {
                 continue;
@@ -43,7 +38,9 @@ public class DisplayStore {
                 System.out.println(
                         "\n1. Go to Billing\n2. Contine shoping\n3. Go back to main menu\nEnter your choice: ");
                 int choice = scanner.nextInt();
-                if (choice == 1) {
+                if (choice == 0) {
+                    System.out.println("nothing is added...");
+                } else if (choice == 1) {
                     System.out.println("Enter your Ph No. ");
                     String phNo = scanner.next();
                     if (!CustomerUtils.checkCustomer(phNo)) {
@@ -51,9 +48,8 @@ public class DisplayStore {
                         String name = scanner.next();
                         CustomerUtils.saveCustomer(new CustomerInfo(name, phNo, 0));
                     }
-                    BillUtils.saveBill(phNo, "now", billItems);
-                    BillUtils.readBill(phNo, "now");
-                    DisplayBill dBill = new DisplayBill(billItems);
+                    CustomerInfo cInfo = CustomerUtils.readCustomer(phNo);
+                    DisplayBill dBill = new DisplayBill(billItems, cInfo, date.toString());
                     dBill.start();
                     try {
                         dBill.join();
@@ -74,4 +70,16 @@ public class DisplayStore {
         }
         System.out.println("");
     }
+
+    public void display() {
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.printf("s.no\titemname\t\titemcode\tmrp\t\tdiscount\n");
+        for (int i = 0; i < itemsArr.length; i++) {
+            StoreItem item = itemsArr[i];
+            System.out.printf("%d\t%s\t\t%s\t\t%.2f\t\t%.2f\n", (i + 1), item.ItemName, item.ItemCode, item.getMRP(),
+                    item.getDiscount());
+        }
+        System.out.println("--------------------------------------------------------------------------");
+    }
+
 }

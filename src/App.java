@@ -2,12 +2,14 @@ import java.util.Scanner;
 
 import customer.CustomerUtils;
 import store.DisplayStore;
+import utils.Utils;
 
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         DisplayStore dStoreObj = new DisplayStore();
 
+        System.out.println(Utils.nameStr);
         System.out.println("Hello Welcome to MANA Super Market :-)");
         int choice = 0;
         while (choice != 4) {
@@ -24,7 +26,7 @@ public class App {
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    dStoreObj.display();
+                    dStoreObj.storeCounter();
                     break;
                 case 2:
                     System.out.println("directing u to customer details...");
@@ -38,6 +40,7 @@ public class App {
                     break;
                 case 3:
                     System.out.println("printing store data");
+                    dStoreObj.display();
                     break;
                 case 4:
                     System.out.println("exiting...");
