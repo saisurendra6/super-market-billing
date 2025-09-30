@@ -1,18 +1,56 @@
+# Super Market Billing
+
+A simple Java project for supermarket billing.
+
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+### Prerequisites
 
-## Folder Structure
+- Java Development Kit (JDK) 8 or higher
+- [Visual Studio Code](https://code.visualstudio.com/) (recommended)
+- Java extensions for VS Code (optional, for better experience)
 
-The workspace contains two folders by default, where:
+### Folder Structure
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- `src/` — Java source files
+- `bin/` — Compiled `.class` files (auto-generated)
+- `lib/` — External dependencies (optional)
+- `.vscode/` — VS Code settings (auto-generated)
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+### Building the Project
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Open a terminal in the project root and run:
 
-## Dependency Management
+```sh
+javac -d bin -sourcepath src src/App.java
+```
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+### Running the Project
+
+After building, run your main class (e.g., `App`) with:
+
+```sh
+java -cp bin App
+```
+
+### Cleaning Build Files
+
+To remove compiled files, delete the `bin/` directory:
+
+```sh
+rm -rf bin
+```
+
+On Windows:
+```sh
+rmdir /s /q bin
+```
+
+### Dependency Management
+
+Place any external `.jar` files in the `lib/` directory and add them to your classpath when compiling/running.
+
+### Version Control
+
+This project uses a `.gitignore` file to exclude build outputs, logs, IDE settings, and dependencies from version control.
+

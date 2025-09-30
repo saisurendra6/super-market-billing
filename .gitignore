@@ -1,0 +1,9 @@
+*.class
+bin/
+*.log
+
+# VS Code settings
+.vscode/
+
+# Java dependency libraries (optional)
+lib/
